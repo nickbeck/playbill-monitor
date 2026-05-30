@@ -2,42 +2,62 @@ import requests
 from bs4 import BeautifulSoup
 from pathlib import Path
 
-URL = "https://playbill.com/shows/broadway"
+PAGES = {
+    "Broadway": (
+        "https://playbill.com/shows/broadway",
+        "data/broadway.txt"
+    ),
+    "Upcoming Broadway": (
+        "https://playbill.com/shows/upcoming-broadway",
+        "data/upcoming_broadway.txt"
+    ),
+    "Off-Broadway": (
+        "https://playbill.com/shows/offbroadway",
+        "data/offbroadway.txt"
+    ),
+    "London": (
+        "https://playbill.com/shows/london",
+        "data/london.txt"
+    ),
+}
 
-response = requests.get(URL, timeout=30)
-response.raise_for_status()
+changes = []
 
-soup = BeautifulSoup(response.text, "html.parser")
+for category, (url, filename) in PAGES.items():
 
-shows = set()
+    response = requests.get(url, timeout=30)
+    response.raise_for_status()
 
-for link in soup.find_all("a"):
-    text = link.get_text(strip=True)
-    if len(text) > 2:
-        shows.add(text)
+    soup = BeautifulSoup(response.text, "html.parser")
 
-shows = sorted(shows)
+    shows = set()
 
-output_file = Path("data/broadway_shows.txt")
+    for link in soup.find_all("a"):
+        text = link.get_text(strip=True)
 
-old_shows = set()
+        if len(text) > 3:
+            shows.add(text)
 
-if output_file.exists():
-    old_shows = set(output_file.read_text().splitlines())
+    current = sorted(shows)
 
-new_shows = set(shows)
+    file_path = Path(filename)
 
-added = sorted(new_shows - old_shows)
+    previous = set()
 
-output_file.write_text("\n".join(shows))
+    if file_path.exists():
+        previous = set(file_path.read_text().splitlines())
 
-if added:
-    print("NEW SHOWS FOUND:")
-    for show in added:
-        print(show)
+    added = sorted(set(current) - previous)
 
+    file_path.write_text("\n".join(current))
+
+    if added:
+        changes.append(f"\n{category}\n")
+        for show in added:
+            changes.append(f"+ {show}")
+
+if changes:
     Path("changes.txt").write_text(
-        "New additions:\n\n" + "\n".join(added)
+        "🎭 New Productions Added\n\n" +
+        "\n".join(changes)
     )
-else:
-    print("No changes")
