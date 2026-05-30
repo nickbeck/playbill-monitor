@@ -1,0 +1,46 @@
+name: Monitor Playbill
+
+on:
+  schedule:
+    - cron: '0 13 * * 1'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: |
+          pip install requests beautifulsoup4
+
+      - run: |
+          python scripts/check_playbill.py
+
+      - name: Create Issue
+        if: hashFiles('changes.txt') != ''
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Broadway Show Changes Detected
+          content-filepath: changes.txt
+
+      - name: Commit Updated Snapshot
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git add data/broadway_shows.txt
+
+          git commit -m "Update Broadway snapshot" || exit 0
+
+          git push
