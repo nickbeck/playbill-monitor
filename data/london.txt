@@ -8,6 +8,7 @@ CARE
 Cabaret
 Cats
 Cleansed
+Cloud 9
 Cyrano de Bergerac
 Death Note: The Musical
 Dracula
@@ -18,6 +19,7 @@ Golden Boy
 Grace Pervades
 Hadestown
 Hamilton
+Hamlet Hail to the Thief
 Harry Potter and the Cursed Child
 Harry Potter and the Cursed Child, Parts One and Two
 Hay Fever
@@ -68,6 +70,7 @@ The Devil Wears Prada
 The Guilty
 The Hunger Games On Stage
 The Jonathan Larson Project
+The Jungle Book
 The Last Ship
 The Lion King
 The Lives of Others
@@ -78,6 +81,7 @@ The Phantom of the Opera
 The Pianist
 The Play That Goes Wrong
 The Producers
+The Rise and Fall of Little Voice
 The Smile of Her
 The Standard of Living
 The Story
