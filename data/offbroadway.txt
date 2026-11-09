@@ -36,6 +36,7 @@ Drunk Shakespeare
 Dueling Pianos
 Dukes
 Elektra
+Fantasma
 Fish
 Forget I Said Anything
 Friends! The Musical Parody
@@ -46,6 +47,7 @@ Giulia: The Poison Queen of Palermo
 Going Bacharach
 Good Time Charlie
 Gotta Dance!
+HOLE!
 Heated Rivalry: The Unauthorized Musical Parody
 Heathers: The Musical
 Henry VI: A Trilogy in Two Parts
@@ -92,6 +94,7 @@ Pre-Existing Condition
 Romeo and Juliet
 Rope
 Rosie O'Donnell: Common Knowledge
+Saigon
 School Pictures
 Sea Wall
 September L. Davis: The Apology Tour
@@ -106,6 +109,7 @@ Soon
 Spandex
 Speakeasy Magick
 Spring Awakening
+Starstuff
 Sukkot
 The 25th Annual Putnam County Spelling Bee
 The Ask
@@ -135,6 +139,7 @@ The Play That Goes Wrong
 The Potluck
 The Real Ivanov
 The Saviors
+The Steel Man
 The Unbelievers
 The Verge
 The Vessel
@@ -143,6 +148,7 @@ The Whoopi Monologues
 The Winter's Tale
 Thornton Wilder's The Emporium
 To Have and To Hold
+Tristan & Yseult
 Triumph
 Truly, Howard Hughes
 Two Girls
